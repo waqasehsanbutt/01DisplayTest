@@ -1,6 +1,7 @@
 /********************* Includes **********************/
-#include "MK70F12.h"
+#include "GeneralHeader.h"
 #include "MultiFunctionBus_PinAssignments.h"
+#include "TouchPanel.h"
 #include "SPI_HLD.h"
 #include "Images.h"
 #include "Delays.h"
@@ -9,10 +10,16 @@
 /********************** Macros ***********************/
 
 /********************** Macros ***********************/
-
+enum MF_MODE{
+	NONE,
+	TOUCH,
+	SD,
+	FONT,
+	FLASH
+};
 
 /********************* Variables *********************/
-
+enum MF_MODE mode = NONE; 
 /********************* Variables **********************/
 static inline void MultiFunctionBus_ConfigSPI(void)
 {
@@ -82,6 +89,25 @@ void MultiFunctionBus_Init(void)
 {
 	ENBL_CLKS;
 	MultiFunctionBus_InitPeripherals();
+}
+
+void ConnectToTouchPanel(void)
+{
+	if(mode != TOUCH)
+	{
+		ConfigureSPIForTouch();
+		mode = TOUCH;
+	}
+}
+
+void ConnectToSDCard(void)
+{
+	
+}
+
+void ConnectToFontChip(void)
+{
+	
 }
 
 

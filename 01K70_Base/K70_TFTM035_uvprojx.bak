@@ -351,7 +351,7 @@
             <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
-            <OneElfS>0</OneElfS>
+            <OneElfS>1</OneElfS>
             <Strict>0</Strict>
             <EnumInt>0</EnumInt>
             <PlainCh>0</PlainCh>
@@ -360,7 +360,7 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
+            <uC99>1</uC99>
             <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
@@ -424,6 +424,11 @@
               <FileType>1</FileType>
               <FilePath>.\SPI_HLD.c</FilePath>
             </File>
+            <File>
+              <FileName>LPTimer_LDD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LPTimer_LDD.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -448,6 +453,26 @@
               <FileName>MultiFunctionBus.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\MultiFunctionBus.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCDLatchingHandler.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LCDLatchingHandler.c</FilePath>
+            </File>
+            <File>
+              <FileName>SDCard.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SDCard.c</FilePath>
+            </File>
+            <File>
+              <FileName>FontChip.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\FontChip.c</FilePath>
+            </File>
+            <File>
+              <FileName>TFT_Flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\TFT_Flash.c</FilePath>
             </File>
           </Files>
         </Group>

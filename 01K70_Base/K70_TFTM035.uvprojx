@@ -424,6 +424,11 @@
               <FileType>1</FileType>
               <FilePath>.\SPI_HLD.c</FilePath>
             </File>
+            <File>
+              <FileName>LPTimer_LDD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LPTimer_LDD.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -449,6 +454,26 @@
               <FileType>1</FileType>
               <FilePath>.\MultiFunctionBus.c</FilePath>
             </File>
+            <File>
+              <FileName>LCDLatchingHandler.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LCDLatchingHandler.c</FilePath>
+            </File>
+            <File>
+              <FileName>SDCard.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SDCard.c</FilePath>
+            </File>
+            <File>
+              <FileName>FontChip.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\FontChip.c</FilePath>
+            </File>
+            <File>
+              <FileName>TFT_Flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\TFT_Flash.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -458,6 +483,11 @@
               <FileName>Images.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Images.c</FilePath>
+            </File>
+            <File>
+              <FileName>Font.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Font.c</FilePath>
             </File>
           </Files>
         </Group>

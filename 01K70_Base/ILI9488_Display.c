@@ -2,6 +2,7 @@
 #include "MK70F12.h"
 #include "ILI9488_PinAssignments.h"
 #include "ILI9488_Display.h"
+#include "Font.h"
 #include "SPI_HLD.h"
 #include "Images.h"
 #include "Delays.h"
@@ -120,14 +121,30 @@ static inline void Write_Cmd(unsigned char cmd)
 	CLR_FLAGS(LCD_SPI);
 }
 
-// Write single data byte
-static inline void Write_Cmd_Data(unsigned char cmdVal)
-{
+static inline void Write_Cmd_Data(unsigned char* cmdVals, uint8_t noOfVals)
+{   
 	WAIT_FOR_FIFO(LCD_SPI);
-	LCD_SPI->PUSHR = SPI_PUSHR_PCS(LCD_PCS) | cmdVal;
-	WAIT_FOR_TRANSMIT(LCD_SPI);
+	D_C_DATA();
+	for(int i = 0; i < noOfVals - 1; i++)
+	{
+		WAIT_FOR_FIFO(LCD_SPI);
+		LCD_SPI->PUSHR = SPI_PUSHR_CONT_MASK | SPI_PUSHR_PCS(1 << LCD_PCS) | *(cmdVals + i);
+	}
+	WAIT_FOR_FIFO(LCD_SPI);
+	LCD_SPI->PUSHR = SPI_PUSHR_EOQ_MASK | SPI_PUSHR_PCS(1 << LCD_PCS) | *(cmdVals + noOfVals - 1);
+	WAIT_FOR_LAST_TRANSMIT(LCD_SPI);
 	CLR_FLAGS(LCD_SPI);
 }
+
+//// Write single data byte
+//static inline void Write_Cmd_Data(unsigned char cmdVal)
+//{    
+//	D_C_DATA();
+//	WAIT_FOR_FIFO(LCD_SPI);
+//	LCD_SPI->PUSHR = SPI_PUSHR_PCS(LCD_PCS) | cmdVal;
+//	WAIT_FOR_TRANSMIT(LCD_SPI);
+//	CLR_FLAGS(LCD_SPI);
+//}
 
 // Write data from 565 16 bit mode
 static inline void Write_Data(unsigned char DH, unsigned char DL)
@@ -172,80 +189,80 @@ static inline void ILI9488_SendInitSequence(void)
 {
 	Reset();
 
-	Write_Cmd(0xE0);
-	Write_Cmd_Data(0x00);
-	Write_Cmd_Data(0x03);
-	Write_Cmd_Data(0x09);
-	Write_Cmd_Data(0x08);
-	Write_Cmd_Data(0x16);
-	Write_Cmd_Data(0x0A);
-	Write_Cmd_Data(0x3F);
-	Write_Cmd_Data(0x78);
-	Write_Cmd_Data(0x4C);
-	Write_Cmd_Data(0x09);
-	Write_Cmd_Data(0x0A);
-	Write_Cmd_Data(0x08);
-	Write_Cmd_Data(0x16);
-	Write_Cmd_Data(0x1A);
-	Write_Cmd_Data(0x0F);
+//	Write_Cmd(0xE0);
+//	Write_Cmd_Data(0x00);
+//	Write_Cmd_Data(0x03);
+//	Write_Cmd_Data(0x09);
+//	Write_Cmd_Data(0x08);
+//	Write_Cmd_Data(0x16);
+//	Write_Cmd_Data(0x0A);
+//	Write_Cmd_Data(0x3F);
+//	Write_Cmd_Data(0x78);
+//	Write_Cmd_Data(0x4C);
+//	Write_Cmd_Data(0x09);
+//	Write_Cmd_Data(0x0A);
+//	Write_Cmd_Data(0x08);
+//	Write_Cmd_Data(0x16);
+//	Write_Cmd_Data(0x1A);
+//	Write_Cmd_Data(0x0F);
 
-	Write_Cmd(0xE1);
-	Write_Cmd_Data(0x00);
-	Write_Cmd_Data(0x16);
-	Write_Cmd_Data(0x19);
-	Write_Cmd_Data(0x03);
-	Write_Cmd_Data(0x0F);
-	Write_Cmd_Data(0x05);
-	Write_Cmd_Data(0x32);
-	Write_Cmd_Data(0x45);
-	Write_Cmd_Data(0x46);
-	Write_Cmd_Data(0x04);
-	Write_Cmd_Data(0x0E);
-	Write_Cmd_Data(0x0D);
-	Write_Cmd_Data(0x35);
-	Write_Cmd_Data(0x37);
-	Write_Cmd_Data(0x0F);
+//	Write_Cmd(0xE1);
+//	Write_Cmd_Data(0x00);
+//	Write_Cmd_Data(0x16);
+//	Write_Cmd_Data(0x19);
+//	Write_Cmd_Data(0x03);
+//	Write_Cmd_Data(0x0F);
+//	Write_Cmd_Data(0x05);
+//	Write_Cmd_Data(0x32);
+//	Write_Cmd_Data(0x45);
+//	Write_Cmd_Data(0x46);
+//	Write_Cmd_Data(0x04);
+//	Write_Cmd_Data(0x0E);
+//	Write_Cmd_Data(0x0D);
+//	Write_Cmd_Data(0x35);
+//	Write_Cmd_Data(0x37);
+//	Write_Cmd_Data(0x0F);
 
-	Write_Cmd(0xC0);      //Power Control 1 
-	Write_Cmd_Data(0x17);    //Vreg1out 
-	Write_Cmd_Data(0x15);    //Verg2out 
+//	Write_Cmd(0xC0);      //Power Control 1 
+//	Write_Cmd_Data(0x17);    //Vreg1out 
+//	Write_Cmd_Data(0x15);    //Verg2out 
 
-	Write_Cmd(0xC1);      //Power Control 2     
-	Write_Cmd_Data(0x41);    //VGH,VGL 
+//	Write_Cmd(0xC1);      //Power Control 2     
+//	Write_Cmd_Data(0x41);    //VGH,VGL 
 
-	Write_Cmd(0xC5);      //Power Control 3 
-	Write_Cmd_Data(0x00);
-	Write_Cmd_Data(0x12);    //Vcom 
-	Write_Cmd_Data(0x80);
+//	Write_Cmd(0xC5);      //Power Control 3 
+//	Write_Cmd_Data(0x00);
+//	Write_Cmd_Data(0x12);    //Vcom 
+//	Write_Cmd_Data(0x80);
 
-	Write_Cmd(0x36);      //Memory Access 
-	Write_Cmd_Data(0x48);
+//	Write_Cmd(0x36);      //Memory Access 
+//	Write_Cmd_Data(0x48);    // 0x48
 
-	Write_Cmd(0x3A);      // Interface Pixel Format 
-	Write_Cmd_Data(0x66); 	  //18 bit    
+//	Write_Cmd(0x3A);      // Interface Pixel Format 
+//	Write_Cmd_Data(0x66); 	  //18 bit    
 
-	Write_Cmd(0XB0);      // Interface Mode Control 
-	Write_Cmd_Data(0x80);     			 //SDO NOT USE
+//	Write_Cmd(0XB0);      // Interface Mode Control 
+//	Write_Cmd_Data(0x80);     			 //SDO NOT USE
 
-	Write_Cmd(0xB1);      //Frame rate 
-	Write_Cmd_Data(0xA0);    //60Hz 
+//	Write_Cmd(0xB1);      //Frame rate 
+//	Write_Cmd_Data(0xA0);    //60Hz 
 
-	Write_Cmd(0xB4);      //Display Inversion Control 
-	Write_Cmd_Data(0x02);    //2-dot 
+//	Write_Cmd(0xB4);      //Display Inversion Control 
+//	Write_Cmd_Data(0x02);    //2-dot 
 
-	Write_Cmd(0XB6);      //Display Function Control  RGB/MCU Interface Control 
+//	Write_Cmd(0xB6);      //Display Function Control  RGB/MCU Interface Control 
 
-	Write_Cmd_Data(0x02);    //MCU 
-	Write_Cmd_Data(0x02);    //Source,Gate scan dieection 
+//	Write_Cmd_Data(0x02);    //MCU 
+//	Write_Cmd_Data(0x02);    //Source,Gate scan dieection 
 
-	Write_Cmd(0XE9);      		// Set Image Functio
-	Write_Cmd_Data(0x00);    // Disable 24 bit data
+//	Write_Cmd(0XE9);      		// Set Image Functio
+//	Write_Cmd_Data(0x00);    // Disable 24 bit data
 
-	Write_Cmd(0xF7);      		// Adjust Control 
-	Write_Cmd_Data(0xA9);
-	Write_Cmd_Data(0x51);
-	Write_Cmd_Data(0x2C);
-	Write_Cmd_Data(0x82);    // D7 stream, loose 
+//	Write_Cmd(0xF7);      		// Adjust Control 
+//	Write_Cmd_Data(0xA9);
+//	Write_Cmd_Data(0x51);
+//	Write_Cmd_Data(0x2C);
+//	Write_Cmd_Data(0x82);    // D7 stream, loose 
 
 	Write_Cmd(0x11); 			//Sleep out
 	Delay_ms(150);
@@ -255,16 +272,15 @@ static inline void ILI9488_SendInitSequence(void)
 void LCD_SetPos(unsigned int xs, unsigned int xe, unsigned int ys, unsigned int ye)
 {
 	Write_Cmd(0x2A);
-	Write_Cmd_Data(xs >> 8);
+	Write_Cmd_Data((xs >> 8) & 0xff);
 	Write_Cmd_Data(xs & 0xff);
-	Write_Cmd_Data(xe >> 8);
+	Write_Cmd_Data((xe >> 8) & 0xff);
 	Write_Cmd_Data(xe & 0xff);
 	Write_Cmd(0x2B);
-	Write_Cmd_Data(ys >> 8);
+	Write_Cmd_Data((ys >> 8) & 0xff);
 	Write_Cmd_Data(ys & 0xff);
-	Write_Cmd_Data(ye >> 8);
+	Write_Cmd_Data((ye >> 8) & 0xff);
 	Write_Cmd_Data(ye & 0xff);
-
 	Write_Cmd(0x2C);
 }
 
@@ -338,6 +354,55 @@ void show_picture(void)
 	return;
 }
 
+// show filled square
+void ShowFilledSquare(uint16_t x, uint16_t y, uint16_t size, uint16_t color)
+{
+	LCD_SetPos(x, x + size - 1, y, y + size - 1);  
+	for(int i = 0; i < (size* size); i++)
+	{
+		Write_Data(color >> 8, color);
+	}
+}
+
+//show one character
+//dcolor:character colour£¬gbcolor: background color
+void ShowSingleChar(unsigned int x,unsigned int y,unsigned char value,unsigned int dcolor,unsigned int bgcolor)	
+{
+	unsigned char i,j;
+	unsigned char *temp=Font_12x8_1;    
+   LCD_SetPos(x,x+7,y,y+11);      
+	temp+=(value-32)*12;
+	for(j=0;j<12;j++)
+	{
+		for(i=0;i<8;i++)
+		{ 		     
+		 	if((*temp&(1<<(7-i)))!=0)
+			{
+				Write_Data(dcolor >>8 , dcolor);
+			} 
+			else
+			{
+				Write_Data(bgcolor >> 8, bgcolor);
+			}   
+		}
+		temp++;
+	 }
+}
+//show string
+//dcolor:character colour£¬gbcolor: background color
+void ShowString(unsigned int x,unsigned int y,unsigned char *str,unsigned int dcolor,unsigned int bgcolor)	
+{
+	unsigned int x1,y1;
+	x1=x;
+	y1=y;
+	while(*str!='\0')
+	{	
+		ShowSingleChar(x1,y1,*str,dcolor,bgcolor);
+		x1+=7;
+		str++;
+	}
+}
+
 // Enter sleep mode
 void ILI9488_EnterSleep(void)
 {
@@ -345,6 +410,7 @@ void ILI9488_EnterSleep(void)
 	Delay_ms(10);
 	Write_Cmd(0x10); // Internal oscillator will be stopped
 	Delay_ms(120);
+	LGHT_OFF();
 }
 
 // Exit sleep mode
@@ -353,6 +419,7 @@ void ILI9488_ExitSleep(void)
 	Write_Cmd(0x11); // Sleep out
 	Delay_ms(120);
 	Write_Cmd(0x29); //Display on
+	LGHT_ON();
 }
 
 // all display one colour

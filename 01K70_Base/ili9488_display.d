@@ -8,6 +8,10 @@
 .\ili9488_display.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h
 .\ili9488_display.o: ILI9488_PinAssignments.h
 .\ili9488_display.o: ILI9488_Display.h
+.\ili9488_display.o: GeneralHeader.h
+.\ili9488_display.o: Types.h
+.\ili9488_display.o: WarningSuppresser.h
+.\ili9488_display.o: Font.h
 .\ili9488_display.o: SPI_HLD.h
 .\ili9488_display.o: Images.h
 .\ili9488_display.o: Delays.h

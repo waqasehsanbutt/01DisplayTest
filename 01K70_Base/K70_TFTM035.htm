@@ -3,16 +3,16 @@
 <title>Static Call Graph - [.\K70_TFTM035.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\K70_TFTM035.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Tue Feb 20 18:12:28 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Thu Feb 22 14:39:48 2018
 <BR><P>
-<H3>Maximum Stack Usage =         60 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =         52 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; show_picture &rArr; Write_Data_U16 &rArr; Write_Data
+__rt_entry_main &rArr; main &rArr; ClearScreen &rArr; Write_Data_U16 &rArr; Write_Data
 <P>
 <H3>
 Functions with no stack information
 </H3><UL>
- <LI><a href="#[8d]">__user_initial_stackheap</a>
+ <LI><a href="#[8e]">__user_initial_stackheap</a>
 </UL>
 </UL>
 <P>
@@ -93,9 +93,10 @@ Function Pointers
  <LI><a href="#[2f]">I2S0_Tx_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
  <LI><a href="#[75]">I2S1_Rx_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
  <LI><a href="#[74]">I2S1_Tx_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
+ <LI><a href="#[79]">LCDFreeHandler</a> from lcdlatchinghandler.o(i.LCDFreeHandler) referenced from lcdlatchinghandler.o(i.LCDLatchingHandler_Init)
  <LI><a href="#[6d]">LCD_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
  <LI><a href="#[21]">LLW_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
- <LI><a href="#[61]">LPTimer_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
+ <LI><a href="#[61]">LPTimer_IRQHandler</a> from lptimer_ldd.o(i.LPTimer_IRQHandler) referenced from startup_mk70f12.o(RESET)
  <LI><a href="#[20]">LVD_LVW_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
  <LI><a href="#[60]">MCG_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
  <LI><a href="#[1d]">MCM_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
@@ -133,7 +134,7 @@ Function Pointers
  <LI><a href="#[b]">SysTick_Handler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
  <LI><a href="#[77]">SystemInit</a> from system_mk70f12.o(i.SystemInit) referenced from startup_mk70f12.o(.text)
  <LI><a href="#[5f]">TSI0_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
- <LI><a href="#[79]">TouchHandler</a> from main_file.o(i.TouchHandler) referenced from main_file.o(i.main)
+ <LI><a href="#[7a]">TouchHandler</a> from main_file.o(i.TouchHandler) referenced from main_file.o(i.main)
  <LI><a href="#[3a]">UART0_ERR_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
  <LI><a href="#[38]">UART0_LON_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
  <LI><a href="#[39]">UART0_RX_TX_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
@@ -152,141 +153,141 @@ Function Pointers
  <LI><a href="#[6c]">USBHS_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
  <LI><a href="#[7]">UsageFault_Handler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
  <LI><a href="#[22]">Watchdog_IRQHandler</a> from startup_mk70f12.o(.text) referenced from startup_mk70f12.o(RESET)
- <LI><a href="#[7a]">__main</a> from __main.o(!!!main) referenced from startup_mk70f12.o(.text)
+ <LI><a href="#[7b]">__main</a> from __main.o(!!!main) referenced from startup_mk70f12.o(.text)
 </UL>
 <P>
 <H3>
 Global Symbols
 </H3>
-<P><STRONG><a name="[7a]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
-<BR><BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
+<P><STRONG><a name="[7b]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
+<BR><BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[7b]"></a>__scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))
-<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<P><STRONG><a name="[7c]"></a>__scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))
+<BR><BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 </UL>
 
-<P><STRONG><a name="[7d]"></a>__scatterload_rt2</STRONG> (Thumb, 44 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
+<P><STRONG><a name="[7e]"></a>__scatterload_rt2</STRONG> (Thumb, 44 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
-<P><STRONG><a name="[9f]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[b0]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
-<P><STRONG><a name="[a0]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[b1]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
-<P><STRONG><a name="[7e]"></a>__scatterload_copy</STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
+<P><STRONG><a name="[7f]"></a>__scatterload_copy</STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
-</UL>
-
-<P><STRONG><a name="[a1]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
-
-<P><STRONG><a name="[84]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
-<BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
 </UL>
 
-<P><STRONG><a name="[7f]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000001))
-<BR><BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_init
+<P><STRONG><a name="[b2]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
+
+<P><STRONG><a name="[85]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li
 </UL>
 
-<P><STRONG><a name="[a2]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
-
-<P><STRONG><a name="[a3]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002A))
-
-<P><STRONG><a name="[a4]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
-
-<P><STRONG><a name="[a5]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
-
-<P><STRONG><a name="[a6]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
-
-<P><STRONG><a name="[a7]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
-
-<P><STRONG><a name="[a8]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
-
-<P><STRONG><a name="[a9]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
-
-<P><STRONG><a name="[aa]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000008))
-
-<P><STRONG><a name="[ab]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))
-
-<P><STRONG><a name="[ac]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
-
-<P><STRONG><a name="[ad]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
-
-<P><STRONG><a name="[ae]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
-
-<P><STRONG><a name="[af]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
-
-<P><STRONG><a name="[b0]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
-
-<P><STRONG><a name="[b1]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000031))
-
-<P><STRONG><a name="[b2]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
-
-<P><STRONG><a name="[b3]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
-
-<P><STRONG><a name="[b4]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
-
-<P><STRONG><a name="[89]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
-<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
+<P><STRONG><a name="[80]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000001))
+<BR><BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_init
 </UL>
 
-<P><STRONG><a name="[b5]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000006))
+<P><STRONG><a name="[b3]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
 
-<P><STRONG><a name="[b6]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E))
+<P><STRONG><a name="[b4]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002A))
 
-<P><STRONG><a name="[b7]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+<P><STRONG><a name="[b5]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
 
-<P><STRONG><a name="[b8]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000009))
+<P><STRONG><a name="[b6]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
 
-<P><STRONG><a name="[b9]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000003))
+<P><STRONG><a name="[b7]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
 
-<P><STRONG><a name="[ba]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000B))
+<P><STRONG><a name="[b8]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
 
-<P><STRONG><a name="[7c]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry.o(.ARM.Collect$$rtentry$$00000000))
-<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<P><STRONG><a name="[b9]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+
+<P><STRONG><a name="[ba]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+
+<P><STRONG><a name="[bb]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000008))
+
+<P><STRONG><a name="[bc]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))
+
+<P><STRONG><a name="[bd]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+
+<P><STRONG><a name="[be]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+
+<P><STRONG><a name="[bf]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+
+<P><STRONG><a name="[c0]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+
+<P><STRONG><a name="[c1]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
+
+<P><STRONG><a name="[c2]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000031))
+
+<P><STRONG><a name="[c3]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+
+<P><STRONG><a name="[c4]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
+
+<P><STRONG><a name="[c5]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+
+<P><STRONG><a name="[8a]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
 </UL>
 
-<P><STRONG><a name="[bb]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+<P><STRONG><a name="[c6]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000006))
 
-<P><STRONG><a name="[81]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry4.o(.ARM.Collect$$rtentry$$00000004))
+<P><STRONG><a name="[c7]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E))
+
+<P><STRONG><a name="[c8]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+
+<P><STRONG><a name="[c9]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000009))
+
+<P><STRONG><a name="[ca]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000003))
+
+<P><STRONG><a name="[cb]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000B))
+
+<P><STRONG><a name="[7d]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry.o(.ARM.Collect$$rtentry$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+</UL>
+
+<P><STRONG><a name="[cc]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+
+<P><STRONG><a name="[82]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry4.o(.ARM.Collect$$rtentry$$00000004))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_sh &rArr; __user_setup_stackheap
 </UL>
-<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[83]"></a>__rt_entry_li</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000A))
-<BR><BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
+<P><STRONG><a name="[84]"></a>__rt_entry_li</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000A))
+<BR><BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
 </UL>
 
-<P><STRONG><a name="[bc]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+<P><STRONG><a name="[cd]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
-<P><STRONG><a name="[85]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; show_picture &rArr; Write_Data_U16 &rArr; Write_Data
+<P><STRONG><a name="[86]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; ClearScreen &rArr; Write_Data_U16 &rArr; Write_Data
 </UL>
-<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[bd]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
-
-<P><STRONG><a name="[8e]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
-<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
+<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[88]"></a>__rt_exit_ls</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000003))
-<BR><BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
+<P><STRONG><a name="[ce]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+
+<P><STRONG><a name="[8f]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 
-<P><STRONG><a name="[be]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+<P><STRONG><a name="[89]"></a>__rt_exit_ls</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000003))
+<BR><BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
+</UL>
 
-<P><STRONG><a name="[8a]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
-<BR><BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
+<P><STRONG><a name="[cf]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+
+<P><STRONG><a name="[8b]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
+<BR><BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
 </UL>
 
 <P><STRONG><a name="[2]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_mk70f12.o(.text))
@@ -536,9 +537,6 @@ Global Symbols
 <P><STRONG><a name="[21]"></a>LLW_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mk70f12.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk70f12.o(RESET)
 </UL>
-<P><STRONG><a name="[61]"></a>LPTimer_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mk70f12.o(.text))
-<BR>[Address Reference Count : 1]<UL><LI> startup_mk70f12.o(RESET)
-</UL>
 <P><STRONG><a name="[20]"></a>LVD_LVW_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mk70f12.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk70f12.o(RESET)
 </UL>
@@ -677,198 +675,319 @@ Global Symbols
 <P><STRONG><a name="[22]"></a>Watchdog_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mk70f12.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk70f12.o(RESET)
 </UL>
-<P><STRONG><a name="[8d]"></a>__user_initial_stackheap</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup_mk70f12.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+<P><STRONG><a name="[8e]"></a>__user_initial_stackheap</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup_mk70f12.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[bf]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[d0]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[c0]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[d1]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[c1]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[d2]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[82]"></a>__user_setup_stackheap</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))
+<P><STRONG><a name="[83]"></a>__user_setup_stackheap</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = __user_setup_stackheap
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
+<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
-</UL>
-
-<P><STRONG><a name="[87]"></a>exit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, exit.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit
-</UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
+<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
 </UL>
 
-<P><STRONG><a name="[c2]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
-
-<P><STRONG><a name="[8c]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+<P><STRONG><a name="[88]"></a>exit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, exit.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit
+</UL>
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[c3]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[d3]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
-<P><STRONG><a name="[8b]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
+<P><STRONG><a name="[8d]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[c4]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[d4]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
-<P><STRONG><a name="[c5]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
-
-<P><STRONG><a name="[95]"></a>Delay_ms</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, delays.o(i.Delay_ms))
-<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_SendInitSequence
+<P><STRONG><a name="[8c]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
-<P><STRONG><a name="[c6]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, indicate_semi.o(.text), UNUSED)
+<P><STRONG><a name="[d5]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[8f]"></a>DisableTouchInterrupt</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, touchpanel.o(i.DisableTouchInterrupt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DisableTouchInterrupt
+<P><STRONG><a name="[d6]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[d7]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[ae]"></a>AssignTouchInterruptHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, touchpanel.o(i.AssignTouchInterruptHandler))
+<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_ClearPendingIRQ
+
+<P><STRONG><a name="[90]"></a>ClearScreen</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, ili9488_display.o(i.ClearScreen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = ClearScreen &rArr; Write_Data_U16 &rArr; Write_Data
+</UL>
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetPos
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Data_U16
+</UL>
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[94]"></a>ConfigureSPIForTouch</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, touchpanel.o(i.ConfigureSPIForTouch))
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConnectToTouchPanel
+</UL>
+
+<P><STRONG><a name="[93]"></a>ConnectToTouchPanel</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, multifunctionbus.o(i.ConnectToTouchPanel))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ConnectToTouchPanel
+</UL>
+<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConfigureSPIForTouch
 </UL>
 <BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTE_IRQHandler
 </UL>
 
-<P><STRONG><a name="[91]"></a>EnableTouchInterrupt</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, touchpanel.o(i.EnableTouchInterrupt))
+<P><STRONG><a name="[9b]"></a>Delay_Cycles</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, delays.o(i.Delay_Cycles))
+<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetTouchRegisterVal
+</UL>
+
+<P><STRONG><a name="[9a]"></a>Delay_ms</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, delays.o(i.Delay_ms))
+<BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetTouchLocation
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_ExitSleep
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_EnterSleep
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_Init
+</UL>
+
+<P><STRONG><a name="[95]"></a>DisableTouchInterrupt</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, touchpanel.o(i.DisableTouchInterrupt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DisableTouchInterrupt
+</UL>
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_ClearPendingIRQ
+</UL>
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTE_IRQHandler
+</UL>
+
+<P><STRONG><a name="[97]"></a>EnableTouchInterrupt</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, touchpanel.o(i.EnableTouchInterrupt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EnableTouchInterrupt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_ClearPendingIRQ
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_ClearPendingIRQ
 </UL>
-<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[92]"></a>ILI9488_Init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, ili9488_display.o(i.ILI9488_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ILI9488_Init &rArr; ILI9488_SendInitSequence
-</UL>
-<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_SendInitSequence
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_InitPeripherals
-</UL>
-<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[98]"></a>LCD_FULL</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, ili9488_display.o(i.LCD_FULL))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = LCD_FULL &rArr; Write_Data_U16 &rArr; Write_Data
-</UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetPos
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Data_U16
-</UL>
-<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[ac]"></a>FontChip_Init</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, fontchip.o(i.FontChip_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[99]"></a>LCD_SetPos</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, ili9488_display.o(i.LCD_SetPos))
+<P><STRONG><a name="[98]"></a>GetTouchLocation</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, touchpanel.o(i.GetTouchLocation))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = GetTouchLocation &rArr; GetTouchRegisterVal
+</UL>
+<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetTouchRegisterVal
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
+</UL>
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTE_IRQHandler
+</UL>
+
+<P><STRONG><a name="[9c]"></a>ILI9488_EnterSleep</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, ili9488_display.o(i.ILI9488_EnterSleep))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ILI9488_EnterSleep
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Cmd
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
+</UL>
+<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCDFreeHandler
+</UL>
+
+<P><STRONG><a name="[9e]"></a>ILI9488_ExitSleep</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, ili9488_display.o(i.ILI9488_ExitSleep))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ILI9488_ExitSleep
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Cmd
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCDLatchingHandler_BeforeDisplay
+</UL>
+
+<P><STRONG><a name="[9f]"></a>ILI9488_Init</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, ili9488_display.o(i.ILI9488_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ILI9488_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Cmd
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_InitPeripherals
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
+</UL>
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[af]"></a>LCDLactchingHandler_AfterDisplay</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, lcdlatchinghandler.o(i.LCDLactchingHandler_AfterDisplay))
+<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[a1]"></a>LCDLatchingHandler_BeforeDisplay</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, lcdlatchinghandler.o(i.LCDLatchingHandler_BeforeDisplay))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = LCDLatchingHandler_BeforeDisplay &rArr; ILI9488_ExitSleep
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_ExitSleep
+</UL>
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[a2]"></a>LCDLatchingHandler_Init</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, lcdlatchinghandler.o(i.LCDLatchingHandler_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = LCDLatchingHandler_Init &rArr; LPTimer_DefaultInit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPTimer_SetForInterrupt
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPTimer_SetCallBack
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPTimer_DefaultInit
+</UL>
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[91]"></a>LCD_SetPos</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, ili9488_display.o(i.LCD_SetPos))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = LCD_SetPos
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Cmd_Data
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Cmd
+<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Cmd_Data
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Cmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_picture
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_FULL
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowFilledSquare
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearScreen
 </UL>
 
-<P><STRONG><a name="[67]"></a>PORTE_IRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, touchpanel.o(i.PORTE_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = PORTE_IRQHandler &rArr; DisableTouchInterrupt
+<P><STRONG><a name="[a3]"></a>LPTimer_DefaultInit</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, lptimer_ldd.o(i.LPTimer_DefaultInit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = LPTimer_DefaultInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisableTouchInterrupt
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCDLatchingHandler_Init
+</UL>
+
+<P><STRONG><a name="[61]"></a>LPTimer_IRQHandler</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, lptimer_ldd.o(i.LPTimer_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LPTimer_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk70f12.o(RESET)
 </UL>
+<P><STRONG><a name="[a4]"></a>LPTimer_SetCallBack</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, lptimer_ldd.o(i.LPTimer_SetCallBack))
+<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCDLatchingHandler_Init
+</UL>
+
+<P><STRONG><a name="[a5]"></a>LPTimer_SetForInterrupt</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, lptimer_ldd.o(i.LPTimer_SetForInterrupt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LPTimer_SetForInterrupt
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCDLatchingHandler_Init
+</UL>
+
+<P><STRONG><a name="[a9]"></a>MultiFunctionBus_Init</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, multifunctionbus.o(i.MultiFunctionBus_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[67]"></a>PORTE_IRQHandler</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, touchpanel.o(i.PORTE_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = PORTE_IRQHandler &rArr; GetTouchLocation &rArr; GetTouchRegisterVal
+</UL>
+<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConnectToTouchPanel
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetTouchLocation
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisableTouchInterrupt
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_mk70f12.o(RESET)
+</UL>
+<P><STRONG><a name="[ab]"></a>SDCard_Init</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, sdcard.o(i.SDCard_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[a7]"></a>ShowFilledSquare</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, ili9488_display.o(i.ShowFilledSquare))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ShowFilledSquare &rArr; LCD_SetPos
+</UL>
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetPos
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Data
+</UL>
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
 <P><STRONG><a name="[77]"></a>SystemInit</STRONG> (Thumb, 266 bytes, Stack size 0 bytes, system_mk70f12.o(i.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk70f12.o(.text)
 </UL>
-<P><STRONG><a name="[79]"></a>TouchHandler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main_file.o(i.TouchHandler))
+<P><STRONG><a name="[ad]"></a>TFTFlash_Init</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, tft_flash.o(i.TFTFlash_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[7a]"></a>TouchHandler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main_file.o(i.TouchHandler))
 <BR>[Address Reference Count : 1]<UL><LI> main_file.o(i.main)
 </UL>
-<P><STRONG><a name="[9d]"></a>TouchInterruptHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, touchpanel.o(i.TouchInterruptHandler))
-<BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[9c]"></a>TouchPanel_Init</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, touchpanel.o(i.TouchPanel_Init))
+<P><STRONG><a name="[aa]"></a>TouchPanel_Init</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, touchpanel.o(i.TouchPanel_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TouchPanel_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[86]"></a>main</STRONG> (Thumb, 126 bytes, Stack size 0 bytes, main_file.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = main &rArr; show_picture &rArr; Write_Data_U16 &rArr; Write_Data
+<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main_file.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = main &rArr; ClearScreen &rArr; Write_Data_U16 &rArr; Write_Data
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_picture
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchPanel_Init
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchInterruptHandler
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_FULL
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_Init
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableTouchInterrupt
+<BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchPanel_Init
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFTFlash_Init
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowFilledSquare
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDCard_Init
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MultiFunctionBus_Init
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCDLatchingHandler_Init
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCDLatchingHandler_BeforeDisplay
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCDLactchingHandler_AfterDisplay
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_Init
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FontChip_Init
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableTouchInterrupt
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearScreen
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AssignTouchInterruptHandler
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
-</UL>
-
-<P><STRONG><a name="[9e]"></a>show_picture</STRONG> (Thumb, 324 bytes, Stack size 24 bytes, ili9488_display.o(i.show_picture))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = show_picture &rArr; Write_Data_U16 &rArr; Write_Data
-</UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetPos
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Data_U16
-</UL>
-<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[80]"></a>_fp_init</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, fpinit.o(x$fpl$fpinit))
-<BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_fp_1
+<P><STRONG><a name="[81]"></a>_fp_init</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, fpinit.o(x$fpl$fpinit))
+<BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_fp_1
 </UL>
 
-<P><STRONG><a name="[c7]"></a>__fplib_config_fpu_vfp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
+<P><STRONG><a name="[d8]"></a>__fplib_config_fpu_vfp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
 
-<P><STRONG><a name="[c8]"></a>__fplib_config_pureend_doubles</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
+<P><STRONG><a name="[d9]"></a>__fplib_config_pureend_doubles</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
 <P>
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[93]"></a>ILI9488_InitPeripherals</STRONG> (Thumb, 150 bytes, Stack size 0 bytes, ili9488_display.o(i.ILI9488_InitPeripherals))
-<BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_Init
+<P><STRONG><a name="[a0]"></a>ILI9488_InitPeripherals</STRONG> (Thumb, 150 bytes, Stack size 0 bytes, ili9488_display.o(i.ILI9488_InitPeripherals))
+<BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_Init
 </UL>
 
-<P><STRONG><a name="[94]"></a>ILI9488_SendInitSequence</STRONG> (Thumb, 436 bytes, Stack size 8 bytes, ili9488_display.o(i.ILI9488_SendInitSequence))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ILI9488_SendInitSequence
-</UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Cmd_Data
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Cmd
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
-</UL>
-<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_Init
+<P><STRONG><a name="[9d]"></a>Write_Cmd</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, ili9488_display.o(i.Write_Cmd))
+<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetPos
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_ExitSleep
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_EnterSleep
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_Init
 </UL>
 
-<P><STRONG><a name="[96]"></a>Write_Cmd</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, ili9488_display.o(i.Write_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetPos
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_SendInitSequence
+<P><STRONG><a name="[a6]"></a>Write_Cmd_Data</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, ili9488_display.o(i.Write_Cmd_Data))
+<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetPos
 </UL>
 
-<P><STRONG><a name="[97]"></a>Write_Cmd_Data</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, ili9488_display.o(i.Write_Cmd_Data))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetPos
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_SendInitSequence
-</UL>
-
-<P><STRONG><a name="[9b]"></a>Write_Data</STRONG> (Thumb, 132 bytes, Stack size 20 bytes, ili9488_display.o(i.Write_Data))
+<P><STRONG><a name="[a8]"></a>Write_Data</STRONG> (Thumb, 132 bytes, Stack size 20 bytes, ili9488_display.o(i.Write_Data))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = Write_Data
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Data_U16
+<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Data_U16
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowFilledSquare
 </UL>
 
-<P><STRONG><a name="[9a]"></a>Write_Data_U16</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, ili9488_display.o(i.Write_Data_U16))
+<P><STRONG><a name="[92]"></a>Write_Data_U16</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, ili9488_display.o(i.Write_Data_U16))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = Write_Data_U16 &rArr; Write_Data
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Data
+<BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Data
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_picture
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_FULL
+<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearScreen
 </UL>
 
-<P><STRONG><a name="[90]"></a>NVIC_ClearPendingIRQ</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, touchpanel.o(i.NVIC_ClearPendingIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisableTouchInterrupt
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableTouchInterrupt
+<P><STRONG><a name="[99]"></a>GetTouchRegisterVal</STRONG> (Thumb, 152 bytes, Stack size 16 bytes, touchpanel.o(i.GetTouchRegisterVal))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = GetTouchRegisterVal
 </UL>
-<P>
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_Cycles
+</UL>
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetTouchLocation
+</UL>
+
+<P><STRONG><a name="[96]"></a>NVIC_ClearPendingIRQ</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, touchpanel.o(i.NVIC_ClearPendingIRQ))
+<BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisableTouchInterrupt
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableTouchInterrupt
+</UL>
+
+<P><STRONG><a name="[79]"></a>LCDFreeHandler</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, lcdlatchinghandler.o(i.LCDFreeHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = LCDFreeHandler &rArr; ILI9488_EnterSleep
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9488_EnterSleep
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> lcdlatchinghandler.o(i.LCDLatchingHandler_Init)
+</UL><P>
 <H3>
 Undefined Global Symbols
 </H3><HR></body></html>

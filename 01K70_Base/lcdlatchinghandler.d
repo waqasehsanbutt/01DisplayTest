@@ -1,0 +1,17 @@
+.\lcdlatchinghandler.o: LCDLatchingHandler.c
+.\lcdlatchinghandler.o: LCDLatchingHandler.h
+.\lcdlatchinghandler.o: GeneralHeader.h
+.\lcdlatchinghandler.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h
+.\lcdlatchinghandler.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h
+.\lcdlatchinghandler.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\lcdlatchinghandler.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h
+.\lcdlatchinghandler.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h
+.\lcdlatchinghandler.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h
+.\lcdlatchinghandler.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h
+.\lcdlatchinghandler.o: Types.h
+.\lcdlatchinghandler.o: WarningSuppresser.h
+.\lcdlatchinghandler.o: LPTimer_LDD.h
+.\lcdlatchinghandler.o: ILI9488_Display.h
+.\lcdlatchinghandler.o: GeneralHeader.h
+.\lcdlatchinghandler.o: Types.h
+.\lcdlatchinghandler.o: WarningSuppresser.h

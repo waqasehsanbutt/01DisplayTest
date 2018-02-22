@@ -4,8 +4,10 @@
 
 #define WAIT_FOR_FIFO(spi)  				while ((spi->SR & SPI_SR_TFFF_MASK) == 0)
 #define WAIT_FOR_TRANSMIT(spi)	   	while ((spi->SR & SPI_SR_TCF_MASK) == 0)  
-#define WAIT_FOR_LAST_TRANSMIT(spi)	   while ((spi->SR & SPI_SR_EOQF_MASK) == 0)  
+#define WAIT_FOR_LAST_TRANSMIT(spi)	   while ((spi->SR & SPI_SR_EOQF_MASK) == 0) 
+#define WAIT_FOR_RECEIVE(spi)				while	((spi->SR & SPI_SR_RFDF_MASK) == 0)
 #define CLR_FLAGS(spi)	   				spi->SR = spi->SR;
+#define CLR_READ_FLAGS(spi)	   		spi->SR = SPI_SR_RFDF_MASK;
 
 /* EOF */
 

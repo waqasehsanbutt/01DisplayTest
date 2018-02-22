@@ -1,5 +1,5 @@
 /********************* Includes **********************/
-#include "MK70F12.h"
+#include "GeneralHeader.h"
 #include "MultiFunctionBus_PinAssignments.h"
 /********************* Includes **********************/
 

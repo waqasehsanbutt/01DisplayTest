@@ -1,16 +1,19 @@
 #include <stdint.h>
-#include "MK70F12.h"
+#include "LCDLatchingHandler.h"
 #include "Delays.h"
 #include "ILI9488_Display.h" 
 #include "MultiFunctionBus.h"
 #include "TouchPanel.h"
+#include "SDCard.h"
+#include "FontChip.h"
+#include "TFTFlash.h"
 
 int i = 0;
 volatile char update = 0;
 
 void TouchHandler(void)
 {
-	update = 1;
+
 }
 
 #if defined (__CC_ARM) || defined(__GNUC__)
@@ -19,38 +22,20 @@ int main(void)
 void main(void)
 #endif
 {
-   ILI9488_Init();
-//	MultiFunctionBus_Init();
+	LCDLatchingHandler_Init();
+	ILI9488_Init();
+	MultiFunctionBus_Init();
 	TouchPanel_Init();
-	TouchInterruptHandler(TouchHandler);
+	SDCard_Init();
+	FontChip_Init();
+	TFTFlash_Init();
+	AssignTouchInterruptHandler(TouchHandler);
+	LCDLatchingHandler_BeforeDisplay();
+	ClearScreen(0xffff);
+	ShowFilledSquare(0, 0, 120, 0);
+	LCDLactchingHandler_AfterDisplay();
 	EnableTouchInterrupt();
-	while(1){
-		if(update == 1)
-		{
-			if(i == 0)
-			{
-				LCD_FULL(0xf800);
-				i = 1;
-			}
-			else if(i == 1)
-			{
-				LCD_FULL(0x07e0);
-				i = 2;
-			} 
-			else if(i == 2)
-			{
-				LCD_FULL(0x001f);
-				i = 3;
-			}
-			else if(i == 3)
-			{
-				show_picture();
-				i = 0;
-			}
-			update = 0;
-			EnableTouchInterrupt();	
-		}
-	}
+	while (1);
 }
 
 /* EOF */
