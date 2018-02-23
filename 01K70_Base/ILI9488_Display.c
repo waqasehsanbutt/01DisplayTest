@@ -129,9 +129,11 @@ static inline void Write_Cmd_Data(unsigned char* cmdVals, uint8_t noOfVals)
 	{
 		WAIT_FOR_FIFO(LCD_SPI);
 		LCD_SPI->PUSHR = SPI_PUSHR_CONT_MASK | SPI_PUSHR_PCS(1 << LCD_PCS) | *(cmdVals + i);
+		CLR_WRITE_FLAG(LCD_SPI);
 	}
 	WAIT_FOR_FIFO(LCD_SPI);
 	LCD_SPI->PUSHR = SPI_PUSHR_EOQ_MASK | SPI_PUSHR_PCS(1 << LCD_PCS) | *(cmdVals + noOfVals - 1);
+	CLR_WRITE_FLAG(LCD_SPI);
 	WAIT_FOR_LAST_TRANSMIT(LCD_SPI);
 	CLR_FLAGS(LCD_SPI);
 }
@@ -149,7 +151,7 @@ static inline void Write_Cmd_Data(unsigned char* cmdVals, uint8_t noOfVals)
 // Write data from 565 16 bit mode
 static inline void Write_Data(unsigned char DH, unsigned char DL)
 {
-	unsigned char R1, G1, B1;
+	unsigned char colors[3]; 
 	unsigned int LD = 0;
 
 	// RGB565 TO RGB666
@@ -157,22 +159,14 @@ static inline void Write_Data(unsigned char DH, unsigned char DL)
 	LD |= DL;
 
 	// colors
-	R1 = (0x1f & (LD >> 11)) * 2;
-	R1 <<= 2;
-	G1 = 0x3f & (LD >> 5);
-	G1 <<= 2;
-	B1 = (0x1f & LD) * 2;
-	B1 <<= 2;
+	colors[0] = (0x1f & (LD >> 11)) * 2;
+	colors[0] <<= 2;
+	colors[1] = 0x3f & (LD >> 5);
+	colors[1] <<= 2;
+	colors[2] = (0x1f & LD) * 2;
+	colors[2] <<= 2;
 
-	D_C_DATA();
-	WAIT_FOR_FIFO(LCD_SPI);
-	LCD_SPI->PUSHR = SPI_PUSHR_CONT_MASK | SPI_PUSHR_PCS(1 << LCD_PCS) | R1;
-	WAIT_FOR_FIFO(LCD_SPI);
-	LCD_SPI->PUSHR = SPI_PUSHR_CONT_MASK | SPI_PUSHR_PCS(1 << LCD_PCS) | G1;
-	WAIT_FOR_FIFO(LCD_SPI);
-	LCD_SPI->PUSHR = SPI_PUSHR_EOQ_MASK | SPI_PUSHR_PCS(1 << LCD_PCS) | B1;
-	WAIT_FOR_LAST_TRANSMIT(LCD_SPI);
-	CLR_FLAGS(LCD_SPI);
+   Write_Cmd_Data(colors, 3);
 }
 
 //write data word
@@ -184,103 +178,151 @@ static inline void Write_Data_U16(unsigned int y)
 	Write_Data(m, n);
 }
 
+static inline void PositiveGammaControl(void)
+{
+	Write_Cmd(0xE0);
+	uint8_t data[] = {0x00, 0x03, 0x09, 0x08, 0x16, 0x0A, 0x3F, 0x78, 0x4C, 0x09, 0x0A, 0x08, 0x16, 0x1A, 0x0F};
+	Write_Cmd_Data(data, sizeof(data));
+}
+
+static inline void NegativeGammaControl(void)
+{
+	Write_Cmd(0xE1);
+	uint8_t data[] = {0x00, 0x16, 0x19, 0x03, 0x0F, 0x05, 0x32, 0x45, 0x46, 0x04, 0x0E, 0x0D, 0x35, 0x37, 0x0F};
+	Write_Cmd_Data(data, sizeof(data));
+}
+
+static inline void PowerControl1(void)
+{  
+	Write_Cmd(0xC0);
+	uint8_t data[] = {0x17, 0x15};
+	Write_Cmd_Data(data, sizeof(data));
+}
+
+static inline void PowerControl2(void)
+{
+	Write_Cmd(0xC1);
+	uint8_t data[] = {0x41};
+	Write_Cmd_Data(data, sizeof(data));
+}
+
+static inline void PowerControl3(void)
+{
+	Write_Cmd(0xC5);
+	uint8_t data[] = {0x00, 0x12, 0x80};
+	Write_Cmd_Data(data, sizeof(data));
+}
+
+static inline void MemoryAccess(void)
+{
+	Write_Cmd(0x36);
+	uint8_t data[] = {0x48};
+	Write_Cmd_Data(data, sizeof(data));
+}
+
+static inline void InterfacePixelFormat(void)
+{
+	Write_Cmd(0x3A);
+	uint8_t data[] = {0x66};
+	Write_Cmd_Data(data, sizeof(data)); 
+}
+
+static inline void InterfaceModeControl(void)
+{
+	Write_Cmd(0xB0);
+	uint8_t data[] = {0x80};
+	Write_Cmd_Data(data, sizeof(data));  
+}
+
+static inline void FrameRateControl(void)
+{
+	Write_Cmd(0xB1);
+	uint8_t data[] = {0xA0};
+	Write_Cmd_Data(data, sizeof(data));	
+}
+
+static inline void DisplayInversionControl(void)
+{	
+	Write_Cmd(0xB4);
+	uint8_t data[] = {0x02};
+	Write_Cmd_Data(data, sizeof(data)); 	
+}
+
+static inline void DisplayFunctionControl(void)
+{
+	Write_Cmd(0xB6);
+	uint8_t data[] = {0x02, 0x02};
+	Write_Cmd_Data(data, sizeof(data)); 
+}
+
+static inline void SetImageFunction(void)
+{  	
+	Write_Cmd(0xE9);
+	uint8_t data[] = {0x00};
+	Write_Cmd_Data(data, sizeof(data)); 
+}
+
+static inline void AdjustControl(void)
+{
+	Write_Cmd(0xF7);
+	uint8_t data[] = {0xA9, 0x51, 0x2C, 0x82};
+	Write_Cmd_Data(data, sizeof(data)); 
+}
+
+// Enter sleep mode
+void ILI9488_EnterSleep(void)
+{
+	Write_Cmd(0x28); //Display off
+	Delay_ms(10);
+	Write_Cmd(0x10); // Internal oscillator will be stopped
+	Delay_ms(120);
+	LGHT_OFF();
+}
+
+// Exit sleep mode
+void ILI9488_ExitSleep(void)
+{
+	Write_Cmd(0x11); // Sleep out
+	Delay_ms(120);
+	Write_Cmd(0x29); //Display on
+	LGHT_ON();
+}
+
 // send initialization sequence
 static inline void ILI9488_SendInitSequence(void)
 {
 	Reset();
 
-//	Write_Cmd(0xE0);
-//	Write_Cmd_Data(0x00);
-//	Write_Cmd_Data(0x03);
-//	Write_Cmd_Data(0x09);
-//	Write_Cmd_Data(0x08);
-//	Write_Cmd_Data(0x16);
-//	Write_Cmd_Data(0x0A);
-//	Write_Cmd_Data(0x3F);
-//	Write_Cmd_Data(0x78);
-//	Write_Cmd_Data(0x4C);
-//	Write_Cmd_Data(0x09);
-//	Write_Cmd_Data(0x0A);
-//	Write_Cmd_Data(0x08);
-//	Write_Cmd_Data(0x16);
-//	Write_Cmd_Data(0x1A);
-//	Write_Cmd_Data(0x0F);
+   PositiveGammaControl();
+   NegativeGammaControl();
 
-//	Write_Cmd(0xE1);
-//	Write_Cmd_Data(0x00);
-//	Write_Cmd_Data(0x16);
-//	Write_Cmd_Data(0x19);
-//	Write_Cmd_Data(0x03);
-//	Write_Cmd_Data(0x0F);
-//	Write_Cmd_Data(0x05);
-//	Write_Cmd_Data(0x32);
-//	Write_Cmd_Data(0x45);
-//	Write_Cmd_Data(0x46);
-//	Write_Cmd_Data(0x04);
-//	Write_Cmd_Data(0x0E);
-//	Write_Cmd_Data(0x0D);
-//	Write_Cmd_Data(0x35);
-//	Write_Cmd_Data(0x37);
-//	Write_Cmd_Data(0x0F);
+   PowerControl1();
+	PowerControl2();
+	PowerControl3();
 
-//	Write_Cmd(0xC0);      //Power Control 1 
-//	Write_Cmd_Data(0x17);    //Vreg1out 
-//	Write_Cmd_Data(0x15);    //Verg2out 
+   MemoryAccess();
+   InterfacePixelFormat();
+   InterfaceModeControl();
+   FrameRateControl();
+   DisplayInversionControl();
+   DisplayFunctionControl();
+   SetImageFunction();
+   AdjustControl();
 
-//	Write_Cmd(0xC1);      //Power Control 2     
-//	Write_Cmd_Data(0x41);    //VGH,VGL 
-
-//	Write_Cmd(0xC5);      //Power Control 3 
-//	Write_Cmd_Data(0x00);
-//	Write_Cmd_Data(0x12);    //Vcom 
-//	Write_Cmd_Data(0x80);
-
-//	Write_Cmd(0x36);      //Memory Access 
-//	Write_Cmd_Data(0x48);    // 0x48
-
-//	Write_Cmd(0x3A);      // Interface Pixel Format 
-//	Write_Cmd_Data(0x66); 	  //18 bit    
-
-//	Write_Cmd(0XB0);      // Interface Mode Control 
-//	Write_Cmd_Data(0x80);     			 //SDO NOT USE
-
-//	Write_Cmd(0xB1);      //Frame rate 
-//	Write_Cmd_Data(0xA0);    //60Hz 
-
-//	Write_Cmd(0xB4);      //Display Inversion Control 
-//	Write_Cmd_Data(0x02);    //2-dot 
-
-//	Write_Cmd(0xB6);      //Display Function Control  RGB/MCU Interface Control 
-
-//	Write_Cmd_Data(0x02);    //MCU 
-//	Write_Cmd_Data(0x02);    //Source,Gate scan dieection 
-
-//	Write_Cmd(0XE9);      		// Set Image Functio
-//	Write_Cmd_Data(0x00);    // Disable 24 bit data
-
-//	Write_Cmd(0xF7);      		// Adjust Control 
-//	Write_Cmd_Data(0xA9);
-//	Write_Cmd_Data(0x51);
-//	Write_Cmd_Data(0x2C);
-//	Write_Cmd_Data(0x82);    // D7 stream, loose 
-
-	Write_Cmd(0x11); 			//Sleep out
-	Delay_ms(150);
-	Write_Cmd(0x29);
+	ILI9488_ExitSleep();
 }
 
 void LCD_SetPos(unsigned int xs, unsigned int xe, unsigned int ys, unsigned int ye)
 {
 	Write_Cmd(0x2A);
-	Write_Cmd_Data((xs >> 8) & 0xff);
-	Write_Cmd_Data(xs & 0xff);
-	Write_Cmd_Data((xe >> 8) & 0xff);
-	Write_Cmd_Data(xe & 0xff);
+	uint8_t data[4] = {xs >> 8, xs & 0xff, xe >> 8, xe & 0xff};
+	Write_Cmd_Data(data, 4);
 	Write_Cmd(0x2B);
-	Write_Cmd_Data((ys >> 8) & 0xff);
-	Write_Cmd_Data(ys & 0xff);
-	Write_Cmd_Data((ye >> 8) & 0xff);
-	Write_Cmd_Data(ye & 0xff);
+	data[0] = ys >> 8;
+	data[1] = ys & 0xff;
+	data[2] = ye >> 8;
+	data[3] = ye & 0xff;
+	Write_Cmd_Data(data, 4);
 	Write_Cmd(0x2C);
 }
 
@@ -403,24 +445,7 @@ void ShowString(unsigned int x,unsigned int y,unsigned char *str,unsigned int dc
 	}
 }
 
-// Enter sleep mode
-void ILI9488_EnterSleep(void)
-{
-	Write_Cmd(0x28); //Display off
-	Delay_ms(10);
-	Write_Cmd(0x10); // Internal oscillator will be stopped
-	Delay_ms(120);
-	LGHT_OFF();
-}
 
-// Exit sleep mode
-void ILI9488_ExitSleep(void)
-{
-	Write_Cmd(0x11); // Sleep out
-	Delay_ms(120);
-	Write_Cmd(0x29); //Display on
-	LGHT_ON();
-}
 
 // all display one colour
 void ClearScreen(unsigned int bColor)

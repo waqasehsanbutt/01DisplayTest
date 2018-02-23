@@ -13,7 +13,7 @@ volatile char update = 0;
 
 void TouchHandler(void)
 {
-
+  LCDLatchingHandler_Reset();
 }
 
 #if defined (__CC_ARM) || defined(__GNUC__)
@@ -32,10 +32,15 @@ void main(void)
 	AssignTouchInterruptHandler(TouchHandler);
 	LCDLatchingHandler_BeforeDisplay();
 	ClearScreen(0xffff);
-	ShowFilledSquare(0, 0, 120, 0);
+//	ShowString(30, 5, "HELLO! PLEASE TOUCH ME!",0,0xffff);
+//   ShowString(80, 18, "TP TEST!",0,0xffff);
+	ShowFilledSquare(302, 9, 8, 0);
+	ShowFilledSquare(10, 236, 8, 0);
+	ShowFilledSquare(302, 462, 8, 0);
 	LCDLactchingHandler_AfterDisplay();
 	EnableTouchInterrupt();
-	while (1);
+	while (1)
+		TouchPanel_Poll();
 }
 
 /* EOF */

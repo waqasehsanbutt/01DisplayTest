@@ -1,4 +1,5 @@
 .\spi_hld.o: SPI_HLD.c
+.\spi_hld.o: SPI_HLD.h
 .\spi_hld.o: GeneralHeader.h
 .\spi_hld.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h
 .\spi_hld.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h
@@ -9,3 +10,4 @@
 .\spi_hld.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h
 .\spi_hld.o: Types.h
 .\spi_hld.o: WarningSuppresser.h
+.\spi_hld.o: Delays.h

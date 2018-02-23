@@ -10,12 +10,14 @@
 .\main_file.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h
 .\main_file.o: Types.h
 .\main_file.o: WarningSuppresser.h
+.\main_file.o: Delays.h
 .\main_file.o: LPTimer_LDD.h
 .\main_file.o: Delays.h
 .\main_file.o: ILI9488_Display.h
 .\main_file.o: GeneralHeader.h
 .\main_file.o: Types.h
 .\main_file.o: WarningSuppresser.h
+.\main_file.o: Delays.h
 .\main_file.o: MultiFunctionBus.h
 .\main_file.o: TouchPanel.h
 .\main_file.o: MultiFunctionBus.h

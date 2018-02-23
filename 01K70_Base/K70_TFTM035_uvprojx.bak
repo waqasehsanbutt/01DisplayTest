@@ -484,6 +484,16 @@
               <FileType>1</FileType>
               <FilePath>.\Images.c</FilePath>
             </File>
+            <File>
+              <FileName>Font.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Font.c</FilePath>
+            </File>
+            <File>
+              <FileName>Converters.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Converters.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

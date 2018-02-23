@@ -9,9 +9,14 @@
 .\multifunctionbus.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h
 .\multifunctionbus.o: Types.h
 .\multifunctionbus.o: WarningSuppresser.h
+.\multifunctionbus.o: Delays.h
 .\multifunctionbus.o: MultiFunctionBus_PinAssignments.h
 .\multifunctionbus.o: TouchPanel.h
 .\multifunctionbus.o: MultiFunctionBus.h
 .\multifunctionbus.o: SPI_HLD.h
+.\multifunctionbus.o: GeneralHeader.h
+.\multifunctionbus.o: Types.h
+.\multifunctionbus.o: WarningSuppresser.h
+.\multifunctionbus.o: Delays.h
 .\multifunctionbus.o: Images.h
 .\multifunctionbus.o: Delays.h
