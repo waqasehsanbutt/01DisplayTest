@@ -17,7 +17,7 @@ void Delay_Cycles(int val){
 void Delay_ms(unsigned int val){
 	unsigned int i,j;
 	for(i=0; i<val; i++)
-		for(j=0; j< 14000; j++);
+		for(j=0; j< 20000; j++);
 }  
 
 /* EOF */

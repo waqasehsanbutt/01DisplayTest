@@ -10,6 +10,8 @@
 .\fontchip.o: Types.h
 .\fontchip.o: WarningSuppresser.h
 .\fontchip.o: Delays.h
+.\fontchip.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+.\fontchip.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
 .\fontchip.o: FontChip_PinAssignments.h
 .\fontchip.o: GeneralHeader.h
 .\fontchip.o: Types.h
@@ -25,4 +27,3 @@
 .\fontchip.o: Delays.h
 .\fontchip.o: Images.h
 .\fontchip.o: Delays.h
-.\fontchip.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h

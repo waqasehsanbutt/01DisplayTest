@@ -775,9 +775,9 @@ rK6, BackDoorK7
 ]
   471 00000000                 IMPORT           SystemInit
   472 00000000                 IMPORT           __main
-  473 00000000 4809            LDR              R0, =SystemInit
+  473 00000000 4806            LDR              R0, =SystemInit
   474 00000002 4780            BLX              R0
-  475 00000004 4809            LDR              R0, =__main
+  475 00000004 4806            LDR              R0, =__main
 
 
 
@@ -1151,40 +1151,30 @@ ARM Macro Assembler    Page 18
   749 0000001C         ; User Initial Stack & Heap
   750 0000001C         
   751 0000001C                 IF               :DEF:__MICROLIB
-  758 0000001C         
-  759 0000001C                 IMPORT           __use_two_region_memory
-  760 0000001C                 EXPORT           __user_initial_stackheap
-  761 0000001C         __user_initial_stackheap
-  762 0000001C         
-  763 0000001C 4804            LDR              R0, =  Heap_Mem
-  764 0000001E 4905            LDR              R1, =(Stack_Mem + Stack_Size)
-  765 00000020 4A03            LDR              R2, = (Heap_Mem +  Heap_Size)
-  766 00000022 4B05            LDR              R3, = Stack_Mem
-  767 00000024 4770            BX               LR
-  768 00000026         
-  769 00000026 00 00           ALIGN
-  770 00000028         
-  771 00000028                 ENDIF
-  772 00000028         
-  773 00000028         
-  774 00000028                 END
+  752 0000001C         
+  753 0000001C                 EXPORT           __initial_sp
+  754 0000001C                 EXPORT           __heap_base
+  755 0000001C                 EXPORT           __heap_limit
+  756 0000001C         
+  757 0000001C                 ELSE
+  771                          ENDIF
+  772 0000001C         
+  773 0000001C         
+  774 0000001C                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=.\sta
+rtup_mk70f12.d -o.\startup_mk70f12.o -IG:\GoogleDrive\101CurrentWork\MTC_Supply
+\01DisplayTest\01DisplayTest\01K70_Base\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1
+.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0 -IC:\Keil_v5\
+ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include --predefine="__MICROLIB SETA
 
 
 
 ARM Macro Assembler    Page 19 
 
 
-              00000000 
-              00000000 
-              00000000 
-              00000400 
-              00000000 
-Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=.\sta
-rtup_mk70f12.d -o.\startup_mk70f12.o -IG:\GoogleDrive\101CurrentWork\MTC_Supply
-\01DisplayTest\01DisplayTest\01K70_Base\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1
-.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0 -IC:\Keil_v5\
-ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include --list=.\startup_mk70f12.lst
- RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
+ 1" --list=.\startup_mk70f12.lst RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
 
 
 
@@ -1205,9 +1195,8 @@ Symbol: Stack_Mem
    Definitions
       At line 22 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
    Uses
-      At line 764 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-      At line 766 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-
+      None
+Comment: Stack_Mem unused
 __initial_sp 00000400
 
 Symbol: __initial_sp
@@ -1215,7 +1204,8 @@ Symbol: __initial_sp
       At line 23 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
    Uses
       At line 49 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-Comment: __initial_sp used once
+      At line 753 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
+
 3 symbols
 
 
@@ -1237,25 +1227,24 @@ Symbol: Heap_Mem
    Definitions
       At line 34 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
    Uses
-      At line 763 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-      At line 765 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-
+      None
+Comment: Heap_Mem unused
 __heap_base 00000000
 
 Symbol: __heap_base
    Definitions
       At line 33 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
    Uses
-      None
-Comment: __heap_base unused
+      At line 754 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
+Comment: __heap_base used once
 __heap_limit 00000000
 
 Symbol: __heap_limit
    Definitions
       At line 35 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
    Uses
-      None
-Comment: __heap_limit unused
+      At line 755 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
+Comment: __heap_limit used once
 4 symbols
 
 
@@ -2633,15 +2622,7 @@ Symbol: Watchdog_IRQHandler
       At line 89 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
       At line 547 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
 
-__user_initial_stackheap 0000001C
-
-Symbol: __user_initial_stackheap
-   Definitions
-      At line 761 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-   Uses
-      At line 760 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-Comment: __user_initial_stackheap used once
-120 symbols
+119 symbols
 
 
 
@@ -2795,8 +2776,7 @@ Symbol: Heap_Size
       At line 30 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
    Uses
       At line 34 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-      At line 765 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-
+Comment: Heap_Size used once
 Stack_Size 00000400
 
 Symbol: Stack_Size
@@ -2804,8 +2784,7 @@ Symbol: Stack_Size
       At line 19 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
    Uses
       At line 22 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-      At line 764 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-
+Comment: Stack_Size used once
 __Vectors_Size 00000400
 
 Symbol: __Vectors_Size
@@ -2837,14 +2816,14 @@ Symbol: nFPROT0
       At line 346 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
    Uses
       At line 347 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
+Comment: nFPROT0 used once
+nFPROT1 00000000
 
 
 
 ARM Macro Assembler    Page 4 Alphabetic symbol ordering
 Absolute symbols
 
-Comment: nFPROT0 used once
-nFPROT1 00000000
 
 Symbol: nFPROT1
    Definitions
@@ -2891,13 +2870,5 @@ Symbol: __main
    Uses
       At line 475 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
 Comment: __main used once
-__use_two_region_memory 00000000
-
-Symbol: __use_two_region_memory
-   Definitions
-      At line 759 in file RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s
-   Uses
-      None
-Comment: __use_two_region_memory unused
-3 symbols
-496 symbols in table
+2 symbols
+493 symbols in table

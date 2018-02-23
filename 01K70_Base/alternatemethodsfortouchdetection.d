@@ -1,0 +1,1 @@
+.\alternatemethodsfortouchdetection.o: AlternateMethodsForTouchDetection.c

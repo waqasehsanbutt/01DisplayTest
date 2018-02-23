@@ -7,7 +7,6 @@
 #include "SPI_HLD.h"
 #include "Images.h"  
 #include "TouchPanelCalibration.h"
-#include <string.h>
 /********************* Includes **********************/
 
 /********************** Macros ***********************/
@@ -18,10 +17,10 @@
 
 /********************* Variables *********************/
 static void (*touchCallBack)(void) = NULL;
-static uint16_t xLoc = 0;
-static uint16_t yLoc = 0;
+//static uint16_t xLoc = 0;
+//static uint16_t yLoc = 0;
 static volatile bool isTouchPending = false;
-
+static POINT_2D_PTR lastTouchPos = NULL;
 /********************* Variables **********************/
 // Initialize SPI IOs
 static inline void TouchPanel_InitSPIIOs(void)
@@ -47,7 +46,7 @@ static inline void TouchPanel_InitPeripherals(void)
 	TouchPanel_InitSPIIOs();
 }
 
-static inline uint16_t GetTouchRegisterVal(uint8_t reg)
+static inline int16_t GetTouchRegisterVal(uint8_t reg)
 {
 	uint8_t valA[2];	
 	SPI_GetRegVal(MF_SPI, reg, valA, 2, SPI_PUSHR_PCS(1 << TCH_PCS));
@@ -57,179 +56,133 @@ static inline uint16_t GetTouchRegisterVal(uint8_t reg)
 	return val >> 3;
 }
 
-static int16_t bestTwoAvg( int16_t x , int16_t y , int16_t z ) {
-  int16_t da, db, dc;
-  int16_t reta = 0;
-  if ( x > y ) da = x - y; else da = y - x;
-  if ( x > z ) db = x - z; else db = z - x;
-  if ( z > y ) dc = z - y; else dc = y - z;
 
-  if ( da <= db && da <= dc ) reta = (x + y) >> 1;
-  else if ( db <= da && db <= dc ) reta = (x + z) >> 1;
-  else reta = (y + z) >> 1;   //    else if ( dc <= da && dc <= db ) reta = (x + y) >> 1;
-
-  return (reta);
+static inline int16_t GetTouchLocationX(uint8_t pFlag)
+{
+	return GetTouchRegisterVal(0x90 | pFlag);
 }
 
-static bool IsThresholdViolated(uint16_t x1, uint16_t x2, uint16_t x3)
+static inline int16_t GetTouchLocationY(uint8_t pFlag)
 {
-	if(x1 > x2)
-	{
-		if(x1 - x2 > THRESHOLD)
-			return false;
-		if(x1 > x3)
-		{
-			if(x1 - x3 > THRESHOLD)
-				return false;
-		}
-		else
-		{
-			if(x3 - x1 > THRESHOLD)
-				return false;
-		}
-	}
-	else
-	{
-		if(x2 - x1 > THRESHOLD)
-			return false;
-		if(x2 > x3)
-		{
-			if(x2 - x3 > THRESHOLD)
-				return false;
-		}
-		else
-		{
-			if(x3 - x2 > THRESHOLD)
-				return false;
-		}
-	}
-	return true;
+	return GetTouchRegisterVal(0xD0 | pFlag);
 }
 
-static inline uint16_t GetTouchLocationX(void)
+static inline int16_t GetTouchLocationZ1(uint8_t pFlag)
 {
-	return GetTouchRegisterVal(0x90);
+	return GetTouchRegisterVal(0xB0 | pFlag);
 }
 
-static inline uint16_t GetTouchLocationY(void)
+static inline int16_t GetTouchLocationZ2(uint8_t pFlag)
 {
-	return GetTouchRegisterVal(0xD0);
+	return GetTouchRegisterVal(0xC0 | pFlag);
 }
 
-static inline uint16_t GetTouchLocationZ1(void)
+static inline uint8_t GetXYAtZValid(int16_t* x, int16_t* y, uint8_t triesLeft)
 {
-	return GetTouchRegisterVal(0xB0);
-}
-
-static inline uint16_t GetTouchLocationZ2(void)
-{
-	return GetTouchRegisterVal(0xC0);
-}
-
-bool Method1(void)
-{
+	int16_t z[2];
+	int16_t xT, yT;
+	int tH = 60000;
 	
-	int16_t x1, x2, x3, y1, y2, y3;
-	int16_t z1 = GetTouchLocationZ1();
-	int z = (int)z1 + 4095;
-	int16_t z2 = GetTouchLocationZ2();
-	z -= z2;
-	if (z >= Z_THRESHOLD)
+	while (triesLeft > 0)
 	{
-		x1 = GetTouchLocationX();
-		y1 = GetTouchLocationY();
-		x2 = GetTouchLocationX();
-		y2 = GetTouchLocationY();
-		x3 = GetTouchLocationX();
-		y3 = GetTouchLocationY();
+//		xT < 100 ? z[1] / z[0] > ((tH / xT) + 1) :
+		triesLeft--;
+		
+		xT = GetTouchLocationX(1);
+		
+		z[0] = GetTouchLocationZ1(1);
+		z[1] = GetTouchLocationZ2(1);
+		
+		if(xT == 0)
+			continue;
+		
+		if (z[1] - z[0] > 2500)
+			continue;
+		
+		xT = GetTouchLocationX(1);
+		yT = GetTouchLocationY(1);
+//		xT = GetTouchLocationX(1);
+//		yT = GetTouchLocationY(1);
+//		xT = GetTouchLocationX(1);
+//		yT = GetTouchLocationY(1);
+		
+		z[0] = GetTouchLocationZ1(1);
+		z[1] = GetTouchLocationZ2(0);
+		
+		if(xT == 0)
+			continue;
+		
+		if (z[1] - z[0] > 2500)
+			continue;
+		
+		*x = xT;
+		*y = yT;
+		
+		triesLeft++;
+		break;		
 	}
-	else
-		return false;
-//	z1 = GetTouchLocationZ1();
-//	z2 = GetTouchLocationZ2();
-//	if ((z2 - z1) > Z_THRESHOLD)
-//		return;
-	xLoc = bestTwoAvg(x1, x2, x3);
-	yLoc = bestTwoAvg(y1, y2, y3);
-	return true;
-}
+	
+	return triesLeft;
+}	
 
-bool Method2(void)
+bool Method5(bool isCalibration)
 {
-	uint16_t x1, x2, x3, y1, y2, y3;
-	x1 = GetTouchLocationX();
-	y1 = GetTouchLocationY();
-	x2 = GetTouchLocationX();
-	y2 = GetTouchLocationY();
-	x3 = GetTouchLocationX();
-	y3 = GetTouchLocationY();
-	if(IsThresholdViolated(x1, x2, x3) == false)
-		return false;
-	if(IsThresholdViolated(y1, y2, y3) == false)
+	int16_t x[2], y[2], z[2];
+	
+	uint8_t triesLeft = GetXYAtZValid(x, y, 20);
+	if (triesLeft == 0)
 		return false;
 	
-	xLoc = (x1 + x2 + x3) / 3;
-	yLoc = (y1 + y2 + y3) / 3;
-	
-	return true;
-}
-
-bool Method3(void)
-{
-	uint16_t x1, x2, x3, y1, y2, y3;
-	x1 = GetTouchLocationX();
-	y1 = GetTouchLocationY(); 
-	uint8_t touchValDiffY = 1;
+	uint8_t touchValDiffY = 8;
 	uint8_t touchValDiffX = touchValDiffY * 2;
-	uint16_t pressureLimit = 5000;
 	bool isOk = false;
-	int retries = 40;
+	
 	do 
 	{
-		x2 = x1;
-		y2 = y1;
-		x1 = GetTouchLocationX();
-		y1 = GetTouchLocationY();
-		uint16_t z1 = GetTouchLocationZ1();
-		uint16_t z2 = GetTouchLocationZ2();
+		x[1] = x[0];
+		y[1] = y[0];
+		triesLeft = GetXYAtZValid(x, y, triesLeft);
+		if (triesLeft == 0)
+			return false;
 		
-		double p = (((z2 * 1.0) / z1) - 1) * ( 4096 - (double)x1);
-		
-		isOk = (p > pressureLimit) ? true : false;
-		
+		isOk = (x[0] == 0 || y[0] == 0 || x[1] == 0 || y[1] == 0) ? false : true;
 		if(isOk == true)
-			isOk = (x1 == 0 || y1 == 0 || x2 == 0 || y2 == 0) ? false : true;
+			isOk = x[0] >= x[1] ? ((x[0] - x[1]) < touchValDiffX ? true :  false) : ((x[1] - x[0]) < touchValDiffX ? true :  false);
 		if(isOk == true)
-			isOk = x1 >= x2 ? ((x1 - x2) < touchValDiffX ? true :  false) : ((x2 - x1) < touchValDiffX ? true :  false);
-		if(isOk == true)
-			isOk = y1 >= y2 ? ((y1 - y2) < touchValDiffY ? true :  false) : ((y2 - y1) < touchValDiffY ? true :  false);
+			isOk = y[0] >= y[1] ? ((y[0] - y[1]) < touchValDiffY ? true :  false) : ((y[1] - y[0]) < touchValDiffY ? true :  false);
 		
-	} while((isOk == false) && (retries-- > 0));
-
-	if(retries <= 0)
-		return false;
+	} while(isOk == false);
 	
-	xLoc = x1;
-	yLoc = y1;
+	x[0] = (y[0] + y[1])/2;
+	y[0] = (x[0] + x[1])/2;
+	
+	if(isCalibration == false)
+	{
+		lastTouchPos->x = ((cal->An * x[0]) + (cal->Bn * y[0]) + cal->Cn) / cal->V;
+		lastTouchPos->y = ((cal->Dn * x[0]) + (cal->En * y[0]) + cal->Fn) / cal->V;
+	}
+	else
+	{
+		lastTouchPos->x = x[0];
+		lastTouchPos->y = y[0];
+	}
 	
 	return true;
 }
 
-void GetTouchLocation(void)
+bool GetTouchLocation(bool isCalibration)
 {
-	if(Method3() == true)
-	{
-		unsigned char ss[6];	
-		ConvertUInt16ToText(xLoc, ss);
-		ShowString(10,205,"X: ",0xf800,0xffff);
-		ShowString(25,205,ss,0xf800,0xffff);	 
-		ConvertUInt16ToText(yLoc, ss);
-		ShowString(80,205,"Y: ",0xf800,0xffff);
-		ShowString(95,205,ss,0xf800,0xffff);
-	}
+	if (Method5(isCalibration) == false)
+			return false;
+	unsigned char ss[6];	
+	ConvertIntToText(lastTouchPos->x, ss);
+	ShowString(10,205,"X: ",0xf800,0xffff);
+	ShowString(25,205,ss,0xf800,0xffff);	 
+	ConvertIntToText(lastTouchPos->y, ss);
+	ShowString(80,205,"Y: ",0xf800,0xffff);
+	ShowString(95,205,ss,0xf800,0xffff);
+	return true;
 }
-
-
 
 void ConfigureSPIForTouch(void)
 {
@@ -310,15 +263,71 @@ void TCH_DTCT_IRQHandler(void)
 			touchCallBack();
 }
 
-void TouchPanel_Poll(void)
+void GetTouch(void)
 {
-	if(isTouchPending == true)
+	bool isOk = false;
+	do
 	{
+//		while(isTouchPending == false);
 		ConnectToTouchPanel();
-		GetTouchLocation();
+		isOk = GetTouchLocation(true);
 		EnableTouchInterrupt();
 		isTouchPending = false;
+	}while(isOk == false);
+}
+
+// calibrate touch
+void CalibrateTouch(void)
+{
+	uint8_t points = 3;
+	
+	POINT_2D_PTR pDisplayPoints = (POINT_2D_PTR)malloc(sizeof(POINT_2D_STRUCT) * points);
+	POINT_2D_PTR pTouchPoints = (POINT_2D_PTR)malloc(sizeof(POINT_2D_STRUCT) * points);
+	
+	ConnectToTouchPanel();
+	
+	// set screen
+
+	pDisplayPoints->x = 260; pDisplayPoints->y = 60;
+	(pDisplayPoints + 1)->x = 160; (pDisplayPoints + 1)->y = 240;	
+	(pDisplayPoints + 2)->x = 60; (pDisplayPoints + 2)->y = 420;
+//	(pDisplayPoints + 3)->x = 160; (pDisplayPoints + 3)->y = 10;	
+//	(pDisplayPoints + 4)->x = 160; (pDisplayPoints + 4)->y = 240;
+//	(pDisplayPoints + 5)->x = 160; (pDisplayPoints + 5)->y = 470;	
+//	(pDisplayPoints + 6)->x = 10; (pDisplayPoints + 6)->y = 10;
+//	(pDisplayPoints + 7)->x = 10; (pDisplayPoints + 7)->y = 240;	
+//	(pDisplayPoints + 8)->x = 10; (pDisplayPoints + 8)->y = 470;
+	
+	ClearScreen(0xFFFF);
+	
+	// set values
+	for (int i = 0 ; i < points ; i++)
+	{		
+		if(i > 0)
+			ShowFilledSquare((pDisplayPoints + i - 1)->x - CAL_RADIUS, (pDisplayPoints + i - 1)->y - CAL_RADIUS, CAL_RADIUS, 0xFFFF);	
+		else
+			ShowFilledSquare((pDisplayPoints + points - 1)->x - CAL_RADIUS, (pDisplayPoints + points - 1)->y - CAL_RADIUS, CAL_RADIUS, 0xFFFF);	
+		ShowFilledSquare((pDisplayPoints + i)->x - CAL_RADIUS, (pDisplayPoints + i)->y - CAL_RADIUS, CAL_RADIUS, 0);
+		GetTouch();
+		Delay_ms(2000);
+		(pTouchPoints + i)->x = lastTouchPos->x;
+		(pTouchPoints + i)->y = lastTouchPos->y;
 	}
+	MakeCalibrationParams(pDisplayPoints, pTouchPoints);
+	
+//	while(1);
+	
+}
+
+void TouchPanel_Poll(void)
+{
+//	if(isTouchPending == true)
+//	{
+		ConnectToTouchPanel();
+		GetTouchLocation(false);
+		EnableTouchInterrupt();
+		isTouchPending = false;
+//	}
 }
 
 // initialize the LCD
@@ -326,6 +335,8 @@ void TouchPanel_Init(void)
 {
 	ENBL_CLKS;
 	TouchPanel_InitPeripherals();
+	TouchPanelCalibration_Init();
+	lastTouchPos = (POINT_2D_PTR)malloc(sizeof(POINT_2D_STRUCT));
 //	TouchPanel_SendInitSequence();
 }
 

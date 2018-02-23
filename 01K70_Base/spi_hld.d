@@ -11,3 +11,5 @@
 .\spi_hld.o: Types.h
 .\spi_hld.o: WarningSuppresser.h
 .\spi_hld.o: Delays.h
+.\spi_hld.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+.\spi_hld.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h

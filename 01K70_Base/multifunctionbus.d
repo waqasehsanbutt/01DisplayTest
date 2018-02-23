@@ -10,6 +10,8 @@
 .\multifunctionbus.o: Types.h
 .\multifunctionbus.o: WarningSuppresser.h
 .\multifunctionbus.o: Delays.h
+.\multifunctionbus.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+.\multifunctionbus.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
 .\multifunctionbus.o: MultiFunctionBus_PinAssignments.h
 .\multifunctionbus.o: TouchPanel.h
 .\multifunctionbus.o: MultiFunctionBus.h

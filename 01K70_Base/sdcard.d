@@ -10,6 +10,8 @@
 .\sdcard.o: Types.h
 .\sdcard.o: WarningSuppresser.h
 .\sdcard.o: Delays.h
+.\sdcard.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+.\sdcard.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
 .\sdcard.o: SDCard_PinAssignments.h
 .\sdcard.o: GeneralHeader.h
 .\sdcard.o: Types.h
@@ -25,4 +27,3 @@
 .\sdcard.o: Delays.h
 .\sdcard.o: Images.h
 .\sdcard.o: Delays.h
-.\sdcard.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h

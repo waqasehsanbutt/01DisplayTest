@@ -479,6 +479,11 @@
               <FileType>1</FileType>
               <FilePath>.\TouchPanelCalibration.c</FilePath>
             </File>
+            <File>
+              <FileName>AlternateMethodsForTouchDetection.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\AlternateMethodsForTouchDetection.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

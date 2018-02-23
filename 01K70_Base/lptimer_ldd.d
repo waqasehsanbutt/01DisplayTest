@@ -10,8 +10,8 @@
 .\lptimer_ldd.o: Types.h
 .\lptimer_ldd.o: WarningSuppresser.h
 .\lptimer_ldd.o: Delays.h
+.\lptimer_ldd.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+.\lptimer_ldd.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
 .\lptimer_ldd.o: LPTimer_LDD.h
 .\lptimer_ldd.o: Types.h
-.\lptimer_ldd.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
 .\lptimer_ldd.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdio.h
-.\lptimer_ldd.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h

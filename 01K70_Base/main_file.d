@@ -11,6 +11,8 @@
 .\main_file.o: Types.h
 .\main_file.o: WarningSuppresser.h
 .\main_file.o: Delays.h
+.\main_file.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+.\main_file.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
 .\main_file.o: LPTimer_LDD.h
 .\main_file.o: Delays.h
 .\main_file.o: ILI9488_Display.h

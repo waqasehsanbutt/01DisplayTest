@@ -57,7 +57,7 @@ long _makeFn(POINT_2D_PTR d, POINT_2D_PTR t)
         (t[1].x * d[0].y - t[0].x * d[1].y) * t[2].y;
 }
 
-bool MakeCalibrationParams(POINT_2D_PTR pDisplayPoints, POINT_2D_PTR pTouchPoints, CAL_PARAMS_PTR cal)
+bool MakeCalibrationParams(POINT_2D_PTR pDisplayPoints, POINT_2D_PTR pTouchPoints)
 {
     /* Touchpoints = Touchpad; ScreenPoints = TFT */
  

@@ -11,6 +11,8 @@
 .\lcdlatchinghandler.o: Types.h
 .\lcdlatchinghandler.o: WarningSuppresser.h
 .\lcdlatchinghandler.o: Delays.h
+.\lcdlatchinghandler.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+.\lcdlatchinghandler.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
 .\lcdlatchinghandler.o: LPTimer_LDD.h
 .\lcdlatchinghandler.o: ILI9488_Display.h
 .\lcdlatchinghandler.o: GeneralHeader.h

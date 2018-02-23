@@ -7,4 +7,5 @@ extern void DisableTouchInterrupt(void);
 extern void AssignTouchInterruptHandler(void (*ptr)(void));
 extern void ConfigureSPIForTouch(void);
 extern void TouchPanel_Poll(void);
+extern void CalibrateTouch(void);
 /* EOF */

@@ -10,6 +10,8 @@
 .\tft_flash.o: Types.h
 .\tft_flash.o: WarningSuppresser.h
 .\tft_flash.o: Delays.h
+.\tft_flash.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+.\tft_flash.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
 .\tft_flash.o: TFTFlash_PinAssignments.h
 .\tft_flash.o: GeneralHeader.h
 .\tft_flash.o: Types.h
@@ -25,4 +27,3 @@
 .\tft_flash.o: Delays.h
 .\tft_flash.o: Images.h
 .\tft_flash.o: Delays.h
-.\tft_flash.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h

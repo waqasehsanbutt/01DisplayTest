@@ -11,3 +11,5 @@
 .\touchpanelcalibration.o: Types.h
 .\touchpanelcalibration.o: WarningSuppresser.h
 .\touchpanelcalibration.o: Delays.h
+.\touchpanelcalibration.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+.\touchpanelcalibration.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h

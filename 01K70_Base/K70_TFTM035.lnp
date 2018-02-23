@@ -11,12 +11,13 @@
 ".\fontchip.o"
 ".\tft_flash.o"
 ".\touchpanelcalibration.o"
+".\alternatemethodsfortouchdetection.o"
 ".\images.o"
 ".\font.o"
 ".\converters.o"
 ".\startup_mk70f12.o"
 ".\system_mk70f12.o"
---strict --scatter ".\K70_TFTM035.sct"
+--library_type=microlib --strict --scatter ".\K70_TFTM035.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\K70_TFTM035.map" -o .\K70_TFTM035.axf

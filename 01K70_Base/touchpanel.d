@@ -10,6 +10,8 @@
 .\touchpanel.o: Types.h
 .\touchpanel.o: WarningSuppresser.h
 .\touchpanel.o: Delays.h
+.\touchpanel.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+.\touchpanel.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
 .\touchpanel.o: TouchPanel_PinAssignments.h
 .\touchpanel.o: GeneralHeader.h
 .\touchpanel.o: Types.h
@@ -34,5 +36,8 @@
 .\touchpanel.o: WarningSuppresser.h
 .\touchpanel.o: Delays.h
 .\touchpanel.o: Images.h
+.\touchpanel.o: TouchPanelCalibration.h
+.\touchpanel.o: GeneralHeader.h
+.\touchpanel.o: Types.h
+.\touchpanel.o: WarningSuppresser.h
 .\touchpanel.o: Delays.h
-.\touchpanel.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h

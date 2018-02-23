@@ -30,15 +30,16 @@ void main(void)
 	FontChip_Init();
 	TFTFlash_Init();
 	AssignTouchInterruptHandler(TouchHandler);
-	LCDLatchingHandler_BeforeDisplay();
-	ClearScreen(0xffff);
+	LCDLatchingHandler_BeforeDisplay();     
+	EnableTouchInterrupt();
+	CalibrateTouch();
+//	ClearScreen(0xffff);
 //	ShowString(30, 5, "HELLO! PLEASE TOUCH ME!",0,0xffff);
 //   ShowString(80, 18, "TP TEST!",0,0xffff);
-	ShowFilledSquare(302, 9, 8, 0);
-	ShowFilledSquare(10, 236, 8, 0);
-	ShowFilledSquare(302, 462, 8, 0);
+//	ShowFilledSquare(302, 9, 8, 0);
+//	ShowFilledSquare(10, 236, 8, 0);
+//	ShowFilledSquare(302, 462, 8, 0);
 	LCDLactchingHandler_AfterDisplay();
-	EnableTouchInterrupt();
 	while (1)
 		TouchPanel_Poll();
 }
