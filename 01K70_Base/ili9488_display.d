@@ -11,6 +11,7 @@
 .\ili9488_display.o: GeneralHeader.h
 .\ili9488_display.o: Types.h
 .\ili9488_display.o: WarningSuppresser.h
+.\ili9488_display.o: UserConfig.h
 .\ili9488_display.o: Delays.h
 .\ili9488_display.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
 .\ili9488_display.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
@@ -19,6 +20,7 @@
 .\ili9488_display.o: GeneralHeader.h
 .\ili9488_display.o: Types.h
 .\ili9488_display.o: WarningSuppresser.h
+.\ili9488_display.o: UserConfig.h
 .\ili9488_display.o: Delays.h
 .\ili9488_display.o: Images.h
 .\ili9488_display.o: Delays.h

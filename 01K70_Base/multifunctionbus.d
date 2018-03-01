@@ -9,6 +9,7 @@
 .\multifunctionbus.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h
 .\multifunctionbus.o: Types.h
 .\multifunctionbus.o: WarningSuppresser.h
+.\multifunctionbus.o: UserConfig.h
 .\multifunctionbus.o: Delays.h
 .\multifunctionbus.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
 .\multifunctionbus.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
@@ -19,6 +20,7 @@
 .\multifunctionbus.o: GeneralHeader.h
 .\multifunctionbus.o: Types.h
 .\multifunctionbus.o: WarningSuppresser.h
+.\multifunctionbus.o: UserConfig.h
 .\multifunctionbus.o: Delays.h
 .\multifunctionbus.o: Images.h
 .\multifunctionbus.o: Delays.h

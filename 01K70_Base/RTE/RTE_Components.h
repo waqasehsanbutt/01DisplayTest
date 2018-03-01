@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'K70_TFTM035' 
+ * Project: 'TFTTest' 
  * Target:  'Target 1' 
  */
 
