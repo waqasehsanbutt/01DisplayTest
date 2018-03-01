@@ -9,7 +9,6 @@
 .\sdcard.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h
 .\sdcard.o: Types.h
 .\sdcard.o: WarningSuppresser.h
-.\sdcard.o: UserConfig.h
 .\sdcard.o: Delays.h
 .\sdcard.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
 .\sdcard.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
@@ -17,7 +16,6 @@
 .\sdcard.o: GeneralHeader.h
 .\sdcard.o: Types.h
 .\sdcard.o: WarningSuppresser.h
-.\sdcard.o: UserConfig.h
 .\sdcard.o: Delays.h
 .\sdcard.o: MultiFunctionBus_PinAssignments.h
 .\sdcard.o: SDCard.h
@@ -26,7 +24,6 @@
 .\sdcard.o: GeneralHeader.h
 .\sdcard.o: Types.h
 .\sdcard.o: WarningSuppresser.h
-.\sdcard.o: UserConfig.h
 .\sdcard.o: Delays.h
 .\sdcard.o: Images.h
 .\sdcard.o: Delays.h

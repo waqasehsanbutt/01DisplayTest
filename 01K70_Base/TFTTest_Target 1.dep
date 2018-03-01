@@ -1,248 +1,0 @@
-Dependencies for Project 'TFTTest', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main_file.c)(0x5A8FF66C)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\main_file.o --omf_browse .\main_file.crf --depend .\main_file.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (LCDLatchingHandler.h)(0x5A8EAB01)
-I (GeneralHeader.h)(0x5A979AA7)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-I (LPTimer_LDD.h)(0x5A8D132B)
-I (ILI9488_Display.h)(0x5A8E84E6)
-I (MultiFunctionBus.h)(0x5A8D5873)
-I (TouchPanel.h)(0x5A8FF300)
-I (SDCard.h)(0x5A8E6046)
-I (FontChip.h)(0x5A8E602F)
-I (TFTFlash.h)(0x5A8E606A)
-F (.\SPI_HLD.c)(0x5A8FA7B8)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\spi_hld.o --omf_browse .\spi_hld.crf --depend .\spi_hld.d)
-I (SPI_HLD.h)(0x5A8EB122)
-I (GeneralHeader.h)(0x5A979AA7)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-F (.\LPTimer_LDD.c)(0x5A8D1B22)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\lptimer_ldd.o --omf_browse .\lptimer_ldd.crf --depend .\lptimer_ldd.d)
-I (GeneralHeader.h)(0x5A979AA7)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-I (LPTimer_LDD.h)(0x5A8D132B)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53466474)
-F (.\Delays.c)(0x5A9003AF)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\delays.o --omf_browse .\delays.crf --depend .\delays.d)
-I (Delays.h)(0x5A8BB42E)
-F (.\ILI9488_Display.c)(0x5A8EA434)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\ili9488_display.o --omf_browse .\ili9488_display.crf --depend .\ili9488_display.d)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (ILI9488_PinAssignments.h)(0x5A8BD4A2)
-I (ILI9488_Display.h)(0x5A8E84E6)
-I (GeneralHeader.h)(0x5A979AA7)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-I (Font.h)(0x5A8E77B6)
-I (SPI_HLD.h)(0x5A8EB122)
-I (Images.h)(0x5A8BF3A9)
-F (.\TouchPanel.c)(0x5A93D2A3)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\touchpanel.o --omf_browse .\touchpanel.crf --depend .\touchpanel.d)
-I (GeneralHeader.h)(0x5A979AA7)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-I (TouchPanel_PinAssignments.h)(0x5A8D488D)
-I (MultiFunctionBus_PinAssignments.h)(0x5A8E585E)
-I (TouchPanel.h)(0x5A8FF300)
-I (MultiFunctionBus.h)(0x5A8D5873)
-I (ILI9488_Display.h)(0x5A8E84E6)
-I (Converters.h)(0x5A8FB75B)
-I (SPI_HLD.h)(0x5A8EB122)
-I (Images.h)(0x5A8BF3A9)
-I (TouchPanelCalibration.h)(0x5A90222B)
-F (.\MultiFunctionBus.c)(0x5A8E7686)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\multifunctionbus.o --omf_browse .\multifunctionbus.crf --depend .\multifunctionbus.d)
-I (GeneralHeader.h)(0x5A979AA7)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-I (MultiFunctionBus_PinAssignments.h)(0x5A8E585E)
-I (TouchPanel.h)(0x5A8FF300)
-I (MultiFunctionBus.h)(0x5A8D5873)
-I (SPI_HLD.h)(0x5A8EB122)
-I (Images.h)(0x5A8BF3A9)
-F (.\LCDLatchingHandler.c)(0x5A8D1B53)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\lcdlatchinghandler.o --omf_browse .\lcdlatchinghandler.crf --depend .\lcdlatchinghandler.d)
-I (LCDLatchingHandler.h)(0x5A8EAB01)
-I (GeneralHeader.h)(0x5A979AA7)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-I (LPTimer_LDD.h)(0x5A8D132B)
-I (ILI9488_Display.h)(0x5A8E84E6)
-F (.\SDCard.c)(0x5A8E66EB)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\sdcard.o --omf_browse .\sdcard.crf --depend .\sdcard.d)
-I (GeneralHeader.h)(0x5A979AA7)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-I (SDCard_PinAssignments.h)(0x5A8E5E58)
-I (MultiFunctionBus_PinAssignments.h)(0x5A8E585E)
-I (SDCard.h)(0x5A8E6046)
-I (MultiFunctionBus.h)(0x5A8D5873)
-I (SPI_HLD.h)(0x5A8EB122)
-I (Images.h)(0x5A8BF3A9)
-F (.\FontChip.c)(0x5A8E66F4)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\fontchip.o --omf_browse .\fontchip.crf --depend .\fontchip.d)
-I (GeneralHeader.h)(0x5A979AA7)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-I (FontChip_PinAssignments.h)(0x5A8E5F0A)
-I (MultiFunctionBus_PinAssignments.h)(0x5A8E585E)
-I (FontChip.h)(0x5A8E602F)
-I (MultiFunctionBus.h)(0x5A8D5873)
-I (SPI_HLD.h)(0x5A8EB122)
-I (Images.h)(0x5A8BF3A9)
-F (.\TFT_Flash.c)(0x5A8E66FA)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\tft_flash.o --omf_browse .\tft_flash.crf --depend .\tft_flash.d)
-I (GeneralHeader.h)(0x5A979AA7)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-I (TFTFlash_PinAssignments.h)(0x5A8E6655)
-I (MultiFunctionBus_PinAssignments.h)(0x5A8E585E)
-I (TFTFlash.h)(0x5A8E606A)
-I (MultiFunctionBus.h)(0x5A8D5873)
-I (SPI_HLD.h)(0x5A8EB122)
-I (Images.h)(0x5A8BF3A9)
-F (.\TouchPanelCalibration.c)(0x5A8FF182)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\touchpanelcalibration.o --omf_browse .\touchpanelcalibration.crf --depend .\touchpanelcalibration.d)
-I (TouchPanelCalibration.h)(0x5A90222B)
-I (GeneralHeader.h)(0x5A979AA7)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-F (.\AlternateMethodsForTouchDetection.c)(0x5A902D19)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\alternatemethodsfortouchdetection.o --omf_browse .\alternatemethodsfortouchdetection.crf --depend .\alternatemethodsfortouchdetection.d)
-F (.\Images.c)(0x5A8BF27E)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\images.o --omf_browse .\images.crf --depend .\images.d)
-F (.\Font.c)(0x5A8E77CC)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\font.o --omf_browse .\font.crf --depend .\font.d)
-F (.\Converters.c)(0x5A8FB901)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\converters.o --omf_browse .\converters.crf --depend .\converters.d)
-I (Converters.h)(0x5A8FB75B)
-I (GeneralHeader.h)(0x5A979AA7)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)
-I (Types.h)(0x5A8D191A)
-I (WarningSuppresser.h)(0x5A8D1A80)
-I (UserConfig.h)(0x5A979984)
-I (Delays.h)(0x5A8BB42E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53466474)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53466474)
-F (RTE\Device\MK70FN1M0xxx12\startup_MK70F12.s)(0x57516606)(--cpu Cortex-M4.fp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include--list .\startup_mk70f12.lst --xref -o .\startup_mk70f12.o --depend .\startup_mk70f12.d)
-F (RTE\Device\MK70FN1M0xxx12\system_MK70F12.c)(0x5A8BB344)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I G:\GoogleDrive\101CurrentWork\MTC_Supply\01DisplayTest\01DisplayTest\01K70_Base\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include-D_RTE_ -DMK70FN1M0xxx12-o .\system_mk70f12.o --omf_browse .\system_mk70f12.crf --depend .\system_mk70f12.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x586DE676)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\MK70F12.h)(0x585BA63A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538450F6)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302CD00)
-I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h)(0x57516606)

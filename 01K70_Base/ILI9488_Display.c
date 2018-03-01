@@ -1,17 +1,11 @@
 /********************* Includes **********************/
-#include "GeneralHeader.h"
-
-#if (!(defined(TFT_TYPE)))
-      #error ("Invalid TFT!");
-#endif
-
-#if (TFT_TYPE == TFTM035_6)
-
+#include "MK70F12.h"
 #include "ILI9488_PinAssignments.h"
 #include "ILI9488_Display.h"
 #include "Font.h"
 #include "SPI_HLD.h"
 #include "Images.h"
+#include "Delays.h"
 /********************* Includes **********************/
 
 /********************** Macros ***********************/
@@ -473,6 +467,6 @@ void ILI9488_Init(void)
 	ILI9488_SendInitSequence();
 }
 
-#endif
+
 
 /* EOF */

@@ -10,7 +10,6 @@
 .\lcdlatchinghandler.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h
 .\lcdlatchinghandler.o: Types.h
 .\lcdlatchinghandler.o: WarningSuppresser.h
-.\lcdlatchinghandler.o: UserConfig.h
 .\lcdlatchinghandler.o: Delays.h
 .\lcdlatchinghandler.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
 .\lcdlatchinghandler.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
@@ -19,5 +18,4 @@
 .\lcdlatchinghandler.o: GeneralHeader.h
 .\lcdlatchinghandler.o: Types.h
 .\lcdlatchinghandler.o: WarningSuppresser.h
-.\lcdlatchinghandler.o: UserConfig.h
 .\lcdlatchinghandler.o: Delays.h

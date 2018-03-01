@@ -10,7 +10,6 @@
 .\converters.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K70_DFP\1.1.0\Device\Include\system_MK70F12.h
 .\converters.o: Types.h
 .\converters.o: WarningSuppresser.h
-.\converters.o: UserConfig.h
 .\converters.o: Delays.h
 .\converters.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
 .\converters.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
