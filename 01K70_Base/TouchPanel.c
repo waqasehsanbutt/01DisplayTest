@@ -158,10 +158,8 @@ bool Method5(bool isCalibration)
 	
 	if(isCalibration == false)
 	{
-		lastTouchPos->x = ((x[0])); // ((cal->An * x[0]) + (cal->Bn * y[0]) + cal->Cn) / cal->V;
-		lastTouchPos->y = ((y[0])); // ((cal->Dn * x[0]) + (cal->En * y[0]) + cal->Fn) / cal->V;
-//		lastTouchPos->x = (lastTouchPos->x >= 320 ? 320 : (lastTouchPos->x <= 0 ? 0 : lastTouchPos->x)); 
-//		lastTouchPos->y = (lastTouchPos->y >= 480 ? 480 : (lastTouchPos->y <= 0 ? 0 : lastTouchPos->y));
+		lastTouchPos->x = ((cal->An * x[0]) + (cal->Bn * y[0]) + cal->Cn) / cal->V;
+		lastTouchPos->y = ((cal->Dn * x[0]) + (cal->En * y[0]) + cal->Fn) / cal->V;
 	}
 	else
 	{
